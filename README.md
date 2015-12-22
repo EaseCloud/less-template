@@ -10,18 +10,20 @@ Examples
 
 Put together `template.less` file in your project folder, for example:
 
-+ /
-+ /css/
-+ /css/template.less
-+ /css/style.less
-+ /js/
-+ /index.html
+```
+/
+/css/
+/css/template.less
+/css/style.less
+/js/
+/index.html
+```
 
 So, now we can import `template.less` in another less file:
 
 ```less
 // File: style.less
-import (once) template.less
+import (once) "template.less"
 
 // using less rules supported by template.less
 // ...
@@ -63,11 +65,12 @@ HTML:
 LESS:
 
 ```less
-import (once) template.less
+import (once) "template.less"
 
 #outer {
   .clearfix();
   .item {
     .pull-left;
   }
+}
 ```
