@@ -71,6 +71,14 @@ input { font-size: inherit; color: inherit; }
 
 //////////////// TRANSFORMS ///////////////////
 
+.transform(@trans) {
+  -webkit-transform: @trans;
+  -moz-transform: @trans;
+  -ms-transform: @trans;
+  -o-transform: @trans;
+  transform: @trans;
+}
+
 .matrix(
   @a11, @a12, @a13,
   @a21, @a22, @a23
