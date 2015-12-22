@@ -198,15 +198,23 @@ input { font-size: inherit; color: inherit; }
 
 // vendor extended animation
 .animation(
-  @animation-name,
-  @animation-duration: 1s,
-  @animation-timing-function: ease,
-  @animation-delay: 0,
-  @animation-iteration-count: 1,
-  @animation-direction: normal) {
-  animation: @arguments;
-  -webkit-animation: @arguments;
-  -moz-animation: @arguments;
-  -o-animation: @arguments;
+  @name,
+  @duration: 1s,
+  @timing-function: ease,
+  @delay: 0,
+  @iteration-count: 1,
+  @direction: normal) {
+  -webkit-animation: @name @duration @iteration-count @timing-function;
+  -moz-animation: @name @duration @iteration-count @timing-function;
+  -o-animation: @name @duration @iteration-count @timing-function;
+  animation: @name @duration @iteration-count @timing-function;
+  -webkit-animation-delay: @delay;
+  -moz-animation-delay: @delay;
+  -o-animation-delay: @delay;
+  animation-delay: @delay;
+  -webkit-animation-direction: @direction;
+  -moz-animation-direction: @direction;
+  -o-animation-direction: @direction;
+  animation-direction: @direction;
 }
 
