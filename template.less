@@ -71,6 +71,29 @@ input { font-size: inherit; color: inherit; }
 
 //////////////// TRANSFORMS ///////////////////
 
+.perspective(@p) {
+  -webkit-perspective: @p;
+  -moz-perspective: @p;
+  perspective: @p;
+}
+
+.perspective-origin(@p) {
+  -webkit-perspective-origin: @p;
+  -moz-perspective-origin: @p;
+  perspective-origin: @p;
+}
+
+.backface-visibility(@p) {
+  -webkit-backface-visibility: @p;
+  -moz-backface-visibility: @p;
+  backface-visibility: @p;
+}
+
+.transform-style(@p) {
+  -webkit-transform-style: @p;
+  transform-style: @p;
+}
+
 .transform(@trans) {
   -webkit-transform: @trans;
   -moz-transform: @trans;
