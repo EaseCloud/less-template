@@ -106,11 +106,11 @@ input { font-size: inherit; color: inherit; }
   @a11, @a12, @a13,
   @a21, @a22, @a23
 ) {
-  -webkit-transform: matrix(@arguments);
-  -moz-transform: matrix(@arguments);
-  -ms-transform: matrix(@arguments);
-  -o-transform: matrix(@arguments);
-  transform: matrix(@arguments);
+  -webkit-transform: matrix(~`@{arguments}.join(",")`);
+  -moz-transform: matrix(~`@{arguments}.join(",")`);
+  -ms-transform: matrix(~`@{arguments}.join(",")`);
+  -o-transform: matrix(~`@{arguments}.join(",")`);
+  transform: matrix(~`@{arguments}.join(",")`);
 }
 
 .matrix3d(
@@ -119,43 +119,43 @@ input { font-size: inherit; color: inherit; }
   @a31, @a32, @a33, @a34,
   @a41, @a42, @a43, @a44
 ) {
-  -webkit-transform: matrix3d(@arguments);
-  -moz-transform: matrix3d(@arguments);
-  -ms-transform: matrix3d(@arguments);
-  -o-transform: matrix3d(@arguments);
-  transform: matrix3d(@arguments);
+  -webkit-transform: matrix3d(~`@{arguments}.join(",")`);
+  -moz-transform: matrix3d(~`@{arguments}.join(",")`);
+  -ms-transform: matrix3d(~`@{arguments}.join(",")`);
+  -o-transform: matrix3d(~`@{arguments}.join(",")`);
+  transform: matrix3d(~`@{arguments}.join(",")`);
 }
 
 .translate(@x:0, @y:0){
-  -webkit-transform: translate(@arguments);
-  -moz-transform: translate(@arguments);
-  -ms-transform: translate(@arguments);
-  -o-transform: translate(@arguments);
-  transform: translate(@arguments);
+  -webkit-transform: translate(~`@{arguments}.join(",")`);
+  -moz-transform: translate(~`@{arguments}.join(",")`);
+  -ms-transform: translate(~`@{arguments}.join(",")`);
+  -o-transform: translate(~`@{arguments}.join(",")`);
+  transform: translate(~`@{arguments}.join(",")`);
 }
 
 .translate3d(@x:0, @y:0, @z:0){
-  -webkit-transform: translate3d(@arguments);
-  -moz-transform: translate3d(@arguments);
-  -ms-transform: translate3d(@arguments);
-  -o-transform: translate3d(@arguments);
-  transform: translate3d(@arguments);
+  -webkit-transform: translate3d(~`@{arguments}.join(",")`);
+  -moz-transform: translate3d(~`@{arguments}.join(",")`);
+  -ms-transform: translate3d(~`@{arguments}.join(",")`);
+  -o-transform: translate3d(~`@{arguments}.join(",")`);
+  transform: translate3d(~`@{arguments}.join(",")`);
 }
 
 .scale(@x, @y:@x) {
-  -webkit-transform: scale(@arguments);
-  -moz-transform: scale(@arguments);
-  -ms-transform: scale(@arguments);
-  -o-transform: scale(@arguments);
-  transform: scale(@arguments);
+  -webkit-transform: scale(~`@{arguments}.join(",")`);
+  -moz-transform: scale(~`@{arguments}.join(",")`);
+  -ms-transform: scale(~`@{arguments}.join(",")`);
+  -o-transform: scale(~`@{arguments}.join(",")`);
+  transform: scale(~`@{arguments}.join(",")`);
 }
 
 .scale3d(@x, @y:@x, @z:@x) {
-  -webkit-transform: scale3d(@arguments);
-  -moz-transform: scale3d(@arguments);
-  -ms-transform: scale3d(@arguments);
-  -o-transform: scale3d(@arguments);
-  transform: scale3d(@arguments);
+  -webkit-transform: scale3d(~`@{arguments}.join(",")`);
+  -moz-transform: scale3d(~`@{arguments}.join(",")`);
+  -ms-transform: scale3d(~`@{arguments}.join(",")`);
+  -o-transform: scale3d(~`@{arguments}.join(",")`);
+  transform: scale3d(~`@{arguments}.join(",")`);
 }
 
 .rotate(@angle) {
@@ -167,11 +167,11 @@ input { font-size: inherit; color: inherit; }
 }
 
 .rotate3d(@x, @y:@x, @z:0, @angle:0) {
-  -webkit-transform: rotate3d(@arguments);
-  -moz-transform: rotate3d(@arguments);
-  -ms-transform: rotate3d(@arguments);
-  -o-transform: rotate3d(@arguments);
-  transform: rotate3d(@arguments);
+  -webkit-transform: rotate3d(~`@{arguments}.join(",")`);
+  -moz-transform: rotate3d(~`@{arguments}.join(",")`);
+  -ms-transform: rotate3d(~`@{arguments}.join(",")`);
+  -o-transform: rotate3d(~`@{arguments}.join(",")`);
+  transform: rotate3d(~`@{arguments}.join(",")`);
 }
 
 .skew(@x-angle:0, @y-angle:0){
@@ -240,4 +240,3 @@ input { font-size: inherit; color: inherit; }
   -o-animation-direction: @direction;
   animation-direction: @direction;
 }
-
