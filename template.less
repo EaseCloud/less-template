@@ -1,34 +1,159 @@
-a { text-decoration: none; color: inherit; }
-strong { font-weight: bold; }
-small { font-size: 0.8em; }
-em { font-style: italic; }
-del { text-decoration: line-through; }
-input { font-size: inherit; color: inherit; }
-
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.text-center { text-align: center; }
-.pull-left { float: left; }
-.pull-right { float: right; }
-
-.clearfix {
-  clear: both; zoom: 1;
-  &::before { content:""; display:table; }
-  &::after { content:""; display:table; clear:both; }
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.float-wrapper { display: inline-block; width: 100%; zoom: 1; }
+strong {
+  font-weight: bold;
+}
 
-.nowrap { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+small {
+  font-size: 0.8em;
+}
 
+em {
+  font-style: italic;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+input {
+  font-size: inherit;
+  color: inherit;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+  zoom: 1;
+  &::before {
+    content: "";
+    display: table;
+  }
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.fill {
+  content: "";
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.fixed-bottom {
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.fixed-top {
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  position: fixed;
+}
+
+.fill-fixed {
+  position: fixed;
+  .fill();
+}
+
+.fill-absolute {
+  position: absolute;
+  .fill();
+}
+
+.block-invisible {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+
+.block-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  .translate('-50%', '-50%');
+}
+
+.block-center-fixed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  .translate('-50%', '-50%');
+}
+
+.float-wrapper {
+  display: inline-block;
+  width: 100%;
+  zoom: 1;
+}
+
+.nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-overflow(@lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+}
 
 //////////////// TEXT EFFECT //////////////////
 
 .placeholder-color(@color: inherit) {
-  &::-webkit-input-placeholder { color: @color; }
-  &::-moz-placeholder { color: @color; }
-  &:-moz-placeholder { color: @color; }
-  &:-ms-input-placeholder { color: @color; }
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+  &::-moz-placeholder {
+    color: @color;
+  }
+  &:-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
 }
 
 .tap-highlight-color(@color: auto) {
@@ -37,7 +162,7 @@ input { font-size: inherit; color: inherit; }
 
 //////////////// BOX EFFECT ///////////////////
 
-.outline(@outline:rgba(0,0,255,0.5) solid 1px, @offset:0){
+.outline(@outline:rgba(0,0,255,0.5) solid 1px, @offset:0) {
   outline: @outline;
   outline-offset: @offset;
 }
@@ -47,6 +172,7 @@ input { font-size: inherit; color: inherit; }
   -moz-border-radius: @radius;
   border-radius: @radius;
 }
+
 .border-radius(@radius: 4px) {
   .rounded-corners(@radius)
 }
@@ -60,13 +186,21 @@ input { font-size: inherit; color: inherit; }
   border-image: @source @slice @width @outset @repeat;
 }
 
-.circle { .border-radius(9999px); }
+.circle {
+  .border-radius(9999px);
+}
 
 .box-shadow(@shadow:0 0 0.5em rgba(0,0,0,0.25) ) {
   -webkit-box-shadow: @shadow;
   -moz-box-shadow: @shadow;
   -o-box-shadow: @shadow;
   box-shadow: @shadow;
+}
+
+.border-box() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 //////////////// TRANSFORMS ///////////////////
@@ -126,7 +260,7 @@ input { font-size: inherit; color: inherit; }
   transform: matrix3d(~`@{arguments}.join(",")`);
 }
 
-.translate(@x:0, @y:0){
+.translate(@x:0, @y:0) {
   -webkit-transform: translate(~`@{arguments}.join(",")`);
   -moz-transform: translate(~`@{arguments}.join(",")`);
   -ms-transform: translate(~`@{arguments}.join(",")`);
@@ -134,7 +268,7 @@ input { font-size: inherit; color: inherit; }
   transform: translate(~`@{arguments}.join(",")`);
 }
 
-.translate3d(@x:0, @y:0, @z:0){
+.translate3d(@x:0, @y:0, @z:0) {
   -webkit-transform: translate3d(~`@{arguments}.join(",")`);
   -moz-transform: translate3d(~`@{arguments}.join(",")`);
   -ms-transform: translate3d(~`@{arguments}.join(",")`);
@@ -174,14 +308,13 @@ input { font-size: inherit; color: inherit; }
   transform: rotate3d(~`@{arguments}.join(",")`);
 }
 
-.skew(@x-angle:0, @y-angle:0){
+.skew(@x-angle:0, @y-angle:0) {
   -webkit-transform: skew(@x-angle, @y-angle);
   -moz-transform: skew(@x-angle, @y-angle);
-  -ms-transform: skew(@x-angle, @y-angle) ;
+  -ms-transform: skew(@x-angle, @y-angle);
   -o-transform: skew(@x-angle, @y-angle);
   transform: skew(@x-angle, @y-angle);
 }
-
 
 //////////////// TRANSITIONS ///////////////////
 
@@ -201,7 +334,6 @@ input { font-size: inherit; color: inherit; }
   transition-duration: @duration;
 }
 
-
 //////////////// ANIMATIONS ///////////////////
 
 // USAGE:
@@ -212,11 +344,21 @@ input { font-size: inherit; color: inherit; }
 //   }
 // }
 .keyframes(@name) {
-  @-webkit-keyframes @name { .-frames(-webkit-); }
-  @-moz-keyframes @name { .-frames(-moz-); }
-  @-ms-keyframes @name { .-frames(-ms-); }
-  @-o-keyframes @name { .-frames(-o-); }
-  @keyframes @name { .-frames(); }
+  @-webkit-keyframes @name {
+    .-frames(-webkit-);
+  }
+  @-moz-keyframes @name {
+    .-frames(-moz-);
+  }
+  @-ms-keyframes @name {
+    .-frames(-ms-);
+  }
+  @-o-keyframes @name {
+    .-frames(-o-);
+  }
+  @keyframes @name {
+    .-frames();
+  }
 }
 
 // vendor extended animation
@@ -240,3 +382,6 @@ input { font-size: inherit; color: inherit; }
   -o-animation-direction: @direction;
   animation-direction: @direction;
 }
+
+//////////////// ADVANCE BLOCK SHORTCUTS ///////////////////
+
